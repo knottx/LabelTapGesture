@@ -30,8 +30,7 @@ extension UILabel {
                               rangeText: String, rangeTextAttributes: [NSAttributedString.Key:Any],
                               completion: @escaping () -> ()) {
         let attributedString = text.attributed(textAttributes)
-        let range = text.range(of: rangeText)
-        attributedString.addAttributes(rangeTextAttributes, range: range)
+        attributedString.addAttributes(rangeTextAttributes, range: text.range(of: rangeText))
         self.isUserInteractionEnabled = true
         self.attributedText = attributedString
         let tapgesture: LabelTapGesture = .init(target: self, action: #selector(self.tappedOnAttributedText(_:)))
@@ -42,7 +41,9 @@ extension UILabel {
     }
 
     @objc func tappedOnAttributedText(_ gesture: LabelTapGesture) {
-        guard let text = self.text, let rangeText = gesture.rangeText, let completion = gesture.completion else { return }
+        guard let text = self.text,
+              let rangeText = gesture.rangeText,
+              let completion = gesture.completion else { return }
         let range = (text as NSString).range(of: rangeText)
         if gesture.didTapAttributedTextInLabel(label: self, inRange: range) {
             completion()
