@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LabelTapGesture"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "An extension for setup UILabel with custom hyperlink styling, and interaction when tap on link."
 
   spec.homepage     = "https://knottovt.github.io"
