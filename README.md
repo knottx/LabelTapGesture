@@ -27,7 +27,7 @@ let rangeTextAttributes:[NSAttributedString.Key : Any] = [.font: UIFont.systemFo
                                                           .underlineStyle: NSUnderlineStyle.single]
 
 self.termsConditionLabel.addTapGesture(text: text, textAttributes: textAttributes,
-                                       rangeText: rangeText, rangeTextAttributes: rangeTextAttributes) {
+                                       tapOnText: rangeText, tapOnTextAttributes: rangeTextAttributes) {
     // Handles when tapping the rangeText on the label.
 }
 ```
